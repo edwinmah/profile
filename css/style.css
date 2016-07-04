@@ -1,0 +1,121 @@
+/*****************/
+/*! Base Styles  */
+/*****************/
+body {
+  position: relative;
+  background: #fff;
+  color: #2a2a2a;
+  font: 87.5%/1.5 "Merriweather", "Times New Roman", Times, serif;
+}
+
+.no-js body {
+  background: url("../images/girl.jpg") no-repeat top center;
+  background-size: cover;
+}
+
+@media (min-width: 40em) {
+  body {
+    font-size: 100%;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, "Roboto", Arial, sans-serif;
+}
+
+img {
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Links */
+a {
+  color: #3e7fa6;
+  text-decoration: none;
+}
+
+a:active,
+a:hover,
+a:focus {
+  color: #415c6c;
+}
+
+/**************/
+/*!  Helpers  */
+/**************/
+
+/* Assistive Text */
+.visuallyhidden {
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  height: 1px;
+  width: 1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  border: 0;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  position: static;
+  margin: 0;
+  height: auto;
+  width: auto;
+  clip: auto;
+  overflow: visible;
+}
+
+/************/
+/*! Layout  */
+/************/
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Grid */
+.container {
+  margin: 0 auto;
+  padding: 0 1.5em;
+}
+
+@media (min-width: 40em) {
+  .container {
+    max-width: 87.5%;
+  }
+}
+
+@media (min-width: 56.25em) {
+  .container {
+    float: left;
+    height: 100vh;
+    width: 25em;
+    overflow: auto;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/*************/
+/*! Content  */
+/*************/
+.tagline {
+  font-style: italic;
+}
+
+/* Contact */
+.social__list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.social__item {
+  display: inline-block;
+  padding: .25em;
+}
