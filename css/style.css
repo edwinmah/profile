@@ -4,13 +4,8 @@
 body {
   position: relative;
   background: #fff;
-  color: #2a2a2a;
-  font: 87.5%/1.5 "Merriweather", "Times New Roman", Times, serif;
-}
-
-.no-js body {
-  background: url("../images/girl.jpg") no-repeat top center;
-  background-size: cover;
+  color: #222;
+  font: 87.5%/1.5 'Merriweather', 'Times New Roman', 'Times', serif;
 }
 
 @media (min-width: 40em) {
@@ -19,26 +14,15 @@ body {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, "Roboto", Arial, sans-serif;
+@media (min-width: 56.25em) {
+  body {
+    background: url('../images/girl.jpg') no-repeat center top;
+    background-size: cover;
+  }
 }
 
-img {
-  height: auto;
-  width: 100%;
-  max-width: 100%;
-}
-
-/* Links */
-a {
-  color: #3e7fa6;
-  text-decoration: none;
-}
-
-a:active,
-a:hover,
-a:focus {
-  color: #415c6c;
+h1, h2, h3 {
+  font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', sans-serif;
 }
 
 /**************/
@@ -79,16 +63,19 @@ html {
   box-sizing: inherit;
 }
 
-/* Grid */
 .container {
   margin: 0 auto;
-  padding: 0 1.5em;
+  max-width: 87.5%;
 }
 
-@media (min-width: 40em) {
-  .container {
-    max-width: 87.5%;
-  }
+.container:before,
+.container:after {
+  content: ' ';
+  display: table;
+}
+
+.container:after {
+  clear: both;
 }
 
 @media (min-width: 56.25em) {
@@ -96,8 +83,7 @@ html {
     float: left;
     height: 100vh;
     width: 25em;
-    overflow: auto;
-    background-color: #fff;
+    padding: 0 1.5em;
     background-color: rgba(255, 255, 255, 0.8);
   }
 }
@@ -105,17 +91,43 @@ html {
 /*************/
 /*! Content  */
 /*************/
+
+/* Site Header */
+.site-header {
+  margin-bottom: 2em;
+}
+
 .tagline {
   font-style: italic;
 }
 
+/* Small Screen Hero */
+@media (max-width: 56.1875em) {
+  .hero {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+  }
+
+  .hero span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('../images/girl-small.jpg') no-repeat 70% top;
+    background-size: cover;
+  }
+}
+
 /* Contact */
-.social__list {
+.social {
   padding-left: 0;
   list-style: none;
 }
 
-.social__item {
+.social li {
   display: inline-block;
   padding: .25em;
 }
