@@ -76,13 +76,17 @@ html {
 /* Grid */
 .container {
   margin: 0 auto;
-  padding: 0 1.5em;
+  max-width: 87.5%;
 }
 
-@media (min-width: 40em) {
-  .container {
-    max-width: 87.5%;
-  }
+.container:before,
+.container:after {
+  content: ' ';
+  display: table;
+}
+
+.container:after {
+  clear: both;
 }
 
 @media (min-width: 56.25em) {
@@ -90,8 +94,7 @@ html {
     float: left;
     height: 100vh;
     width: 25em;
-    overflow: auto;
-    background-color: #fff;
+    padding: 0 1.5em;
     background-color: rgba(255, 255, 255, 0.8);
   }
 }
@@ -99,6 +102,8 @@ html {
 /*************/
 /*! Content  */
 /*************/
+
+/* Site Header */
 .site-header {
   margin-bottom: 2em;
 }
@@ -108,12 +113,12 @@ html {
 }
 
 /* Contact */
-.social__list {
+.social {
   padding-left: 0;
   list-style: none;
 }
 
-.social__item {
+.social li {
   display: inline-block;
   padding: .25em;
 }
@@ -123,11 +128,6 @@ html {
 /***********/
 
 @media (max-width: 56.1875em) {
-  .no-js .site-header__title {
-    margin: 0;
-    padding: .67em 0;
-  }
-
   .no-js .no-js-hero {
     position: relative;
     height: 0;
@@ -150,9 +150,5 @@ html {
   .no-js body {
     background: url('../images/girl.jpg') no-repeat center top;
     background-size: cover;
-  }
-
-  .no-js body::before {
-    background-color: transparent;
   }
 }
