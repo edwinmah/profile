@@ -1,21 +1,51 @@
 $(document).ready(function() {
-  // set media query condition
-  var mediaQuery = '(min-width: 56.25em)';
 
-  if (matchMedia(mediaQuery).matches) {
+  // debounce: https://davidwalsh.name/javascript-debounce-function
+  function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
 
-    // instantiate backstretch.js if media query condition matches
-    $("body").backstretch("images/girl.jpg");
+  // function to set background image
+  function setBgImage() {
+    var largeImg = 'images/girl.jpg';
+    var smallImg = 'images/girl-small.jpg';
+    var hero     = '<div class="hero"><img src="' + smallImg + '" alt="my profile image"></div>';
+    var isHero   = $('.hero')[0] === undefined;
 
-  } else {
+    if (window.innerWidth >= 900) {
 
-    // set path to small profile image
-    var imgUrl = 'images/girl-small.jpg';
+      // remove hero image
+      $('.hero').remove();
 
-    // create markup for small profile image
-    var hero = '<div class="hero"><img src="' + imgUrl + '" alt="my profile image"></div>';
+      // apply backstretch image
+      $('body').backstretch(largeImg);
 
-    // inject small profile image immediately after .skip-content nav in markup
-    $(".skip-content").after(hero);
+    } else if (isHero) {
+
+      // remove backstretch element
+      $('.backstretch').remove();
+
+      // inject small profile hero image after .site-header
+      $('.site-header').after(hero);
+
+    }
   }
+
+  // set background image when the page is loaded
+  setBgImage();
+
+  // reset background image when browser is resized
+  $(window).on('resize', debounce(setBgImage, 50));
+
 });
