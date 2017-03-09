@@ -124,6 +124,15 @@ html {
   }
 }
 
+/* Sections */
+@media (max-width: 56.1875em) {
+  .section {
+    max-width: 38.75em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* Contact */
 .social {
   padding-left: 0;
