@@ -85,7 +85,7 @@ html {
   }
 }
 
-.h-padding {
+.container > :not(.hero) {
   padding-left: 1.5em;
   padding-right: 1.5em;
 }
