@@ -66,6 +66,11 @@ html {
   margin: 0 auto;
 }
 
+.container > :not(.hero) {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
 .container:before,
 .container:after {
   content: ' ';
@@ -83,11 +88,6 @@ html {
     width: 25em;
     background-color: rgba(255, 255, 255, 0.8);
   }
-}
-
-.container > :not(.hero) {
-  padding-left: 1.5em;
-  padding-right: 1.5em;
 }
 
 /*************/
