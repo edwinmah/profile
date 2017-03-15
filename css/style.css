@@ -112,7 +112,7 @@ html {
     overflow: hidden;
   }
 
-  .hero span {
+  .hero > span {
     position: absolute;
     top: 0;
     left: 0;
@@ -138,7 +138,7 @@ html {
   list-style: none;
 }
 
-.social li {
+.social > li {
   display: inline-block;
   padding: .25em;
 }
